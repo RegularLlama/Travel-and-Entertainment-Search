@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		function valid(form){
+			var usern = form.uname.value;
+			var pass1 = form.pw1.value;
+			var pass2 = form.pw2.value;
+			if (usern=="") {
+				alert("Enter Username");
+				form.uname.focus();
+				return false;
+			}
+			if (pass1==""){
+				alert("Enter pass");
+				form.pw1.focus();
+				return false;
+			}
+			if (pass1.length<8) {
+				alert("Pass must contain atleast 8 digits");
+				form.pw1.focus();
+				return false;
+			}
+			if (pass2==""){
+				alert("Enter confirm pass");
+				form.pw2.focus();
+				return false;
+			}
+			if (pass1.length>=8 && pass2.length>=8) {
+				if (pass1 != pass2){
+					alert("pass mismatch");
+					return false;
+				}
+			}
+			return true;
+		}
+	</script>
+	<title>Simple Form</title>
+</head>
+<body>
+	<form action="data.html" onsubmit="return valid(this)" method="POST">
+		Username: <input type="text" name="uname"><br>
+		Password: <input type="Password" name="pw1"><br>
+		Confirm Password: <input type="Password" name="pw2"><br>
+		<input type="submit" name="submit">
+	</form>
+</body>
+</html>
